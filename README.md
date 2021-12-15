@@ -1,5 +1,5 @@
 # NAT
-NAT API prototype to port forward. Required for hosting servers behind a router.
+NAT API prototype to port forward. Required for hosting servers behind a router's firewall.
 
 ## TODO:
 
