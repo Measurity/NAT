@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using NatController.Nat;
+using NatController.Nat.Upnp;
 
 namespace NatController;
 
@@ -14,10 +15,10 @@ internal class Program
             Console.WriteLine(eventArgs.ExceptionObject.ToString());
             Console.ResetColor();
             Console.ReadKey(true);
-            Environment.Exit((eventArgs.ExceptionObject as Upnp.UpnpException)?.Code ?? 1);
+            Environment.Exit((eventArgs.ExceptionObject as UpnpException)?.Code ?? 1);
         };
 
-        Console.WriteLine(await Upnp.GetExternalIpAsync());
+        Console.WriteLine(await UpnpApi.GetExternalIpAsync());
 
         Console.WriteLine("Press any key to continue . . .");
         Console.ReadKey(true);

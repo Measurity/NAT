@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 using NatController.Nat.Core;
 using NatController.Net;
 
-namespace NatController.Nat.Discovery;
+namespace NatController.Nat.Upnp;
 
-public class UpnpDiscoverer : NatDiscoverer<Upnp.UpnpDevice>
+public class UpnpDiscoverer : NatDiscoverer<UpnpDevice>
 {
     /// <summary>
     ///     The standard IP that is used for UPnP broadcast. UPnP servers will listen to packets with this IP.
@@ -25,9 +25,9 @@ public class UpnpDiscoverer : NatDiscoverer<Upnp.UpnpDevice>
     /// </summary>
     private const string SearchDevicesMessage = "M-SEARCH * HTTP/1.1\r\nHOST:239.255.255.250:1900\r\nMAN:\"ssdp:discover\"\r\nST:ssdp:all\r\nMX:3\r\n\r\n";
 
-    protected override async Task<IEnumerable<Upnp.UpnpDevice>> DiscoveryUncachedAsync(int timeoutInMs)
+    protected override async Task<IEnumerable<UpnpDevice>> DiscoveryUncachedAsync(int timeoutInMs)
     {
-        static async Task<Upnp.UpnpDevice> ReceiveNextAsync(IEnumerable<UdpClient> clients)
+        static async Task<UpnpDevice> ReceiveNextAsync(IEnumerable<UdpClient> clients)
         {
             CancellationTokenSource cancellation = new(TimeSpan.FromSeconds(10));
             while (!cancellation.IsCancellationRequested)
@@ -41,7 +41,7 @@ public class UpnpDiscoverer : NatDiscoverer<Upnp.UpnpDevice>
                             continue;
                         }
                         UdpReceiveResult result = await client.ReceiveAsync(cancellation.Token);
-                        Upnp.UpnpDevice device = Upnp.UpnpDevice.FromUpnp(Encoding.UTF8.GetString(result.Buffer).Trim());
+                        UpnpDevice device = UpnpDevice.FromUpnp(Encoding.UTF8.GetString(result.Buffer).Trim());
                         if (!device.Data.Any())
                         {
                             continue;
@@ -109,7 +109,7 @@ public class UpnpDiscoverer : NatDiscoverer<Upnp.UpnpDevice>
         CancellationTokenSource cancellation = new(TimeSpan.FromMilliseconds(timeoutInMs));
         while (!cancellation.IsCancellationRequested)
         {
-            Upnp.UpnpDevice device = await ReceiveNextAsync(upnpClients);
+            UpnpDevice device = await ReceiveNextAsync(upnpClients);
             if (device == null)
             {
                 await Task.Delay(10, cancellation.Token);

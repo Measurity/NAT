@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using System.Xml.Linq;
 using NUnit.Framework;
 
@@ -7,7 +6,7 @@ namespace NatController.Tests;
 public class XmlGenTests
 {
     [Test]
-    public async Task TestGenerateXDocWithNamespace()
+    public void TestGenerateXDocWithNamespace()
     {
         XNamespace nsEnvelope = "http://schemas.xmlsoap.org/soap/envelope/";
         XDocument doc = new(

@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -33,9 +34,9 @@ public class XmlParsingTests
         var services = doc.Descendants(XName.Get("service", ns))
             .Select(x => new
             {
-                Id = x.Element(XName.Get("serviceId", ns)).Value,
-                ControlUrl = x.Element(XName.Get("controlURL", ns)).Value,
-                ScpdUrl = x.Element(XName.Get("SCPDURL", ns)).Value
+                Id = x.Element(XName.Get("serviceId", ns))?.Value ?? throw new Exception("Missing serviceId on UPnP service"),
+                ControlUrl = x.Element(XName.Get("controlURL", ns))?.Value  ?? throw new Exception("Missing controlURL on UPnP service"),
+                ScpdUrl = x.Element(XName.Get("SCPDURL", ns))?.Value ?? throw new Exception("Missing SCPDURL on UPnP service")
             });
 
         foreach (var service in services)

@@ -57,6 +57,7 @@ public abstract class NatDiscoverer<TDevice> : INatDiscover<TDevice> where TDevi
     public async Task<TResult> GetFirstAsync<TResult>(Func<TDevice, Task<TResult>> predicate) where TResult : class
     {
         TaskCompletionSource<TResult> interfaceDiscoveredSource = new();
+
         void Handler(object sender, TDevice device)
         {
             predicate(device)

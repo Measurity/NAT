@@ -66,7 +66,7 @@ public static class NetHelper
             }
         }
 
-        IPAddress ip = await Upnp.GetExternalIpAsync();
+        IPAddress ip = await UpnpApi.GetExternalIpAsync();
 #if RELEASE
             if (ip == null)
             {
