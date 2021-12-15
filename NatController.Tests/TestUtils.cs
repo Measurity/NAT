@@ -2,7 +2,7 @@
 
 namespace NatController.Tests;
 
-public static class Utils
+public static class TestUtils
 {
     public static Stream GetContentFile(string fileName)
     {

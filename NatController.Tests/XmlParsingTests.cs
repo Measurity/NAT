@@ -27,7 +27,7 @@ public class XmlParsingTests
     [Test]
     public void TestParseInternetGatewayDeviceXml()
     {
-        using Stream stream = Utils.GetContentFile("IGD.xml");
+        using Stream stream = TestUtils.GetContentFile("IGD.xml");
         XDocument doc = XDocument.Load(stream);
         var ns = doc.Root?.GetDefaultNamespace().NamespaceName ?? "";
         var services = doc.Descendants(XName.Get("service", ns))
