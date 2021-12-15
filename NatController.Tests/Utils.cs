@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace UpnpController.Tests;
+namespace NatController.Tests;
 
 public static class Utils
 {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using NUnit.Framework;
 
-namespace UpnpController.Tests;
+namespace NatController.Tests;
 
 public class XmlParsingTests
 {

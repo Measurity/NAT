@@ -14,8 +14,9 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using NatController.Net;
 
-namespace UpnpController;
+namespace NatController.Nat;
 
 /// <summary>
 ///     https://upnp.org/resources/documents/UPnP_UDA_tutorial_July2014.pdf

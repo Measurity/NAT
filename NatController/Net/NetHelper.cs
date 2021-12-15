@@ -4,8 +4,9 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using NatController.Nat;
 
-namespace UpnpController;
+namespace NatController.Net;
 
 public static class NetHelper
 {

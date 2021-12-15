@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpnpController", "UpnpController\UpnpController.csproj", "{9B85948E-ED90-4479-AA4F-090AB7DCCA1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NatController", "NatController\NatController.csproj", "{9B85948E-ED90-4479-AA4F-090AB7DCCA1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpnpController.Tests", "UpnpController.Tests\UpnpController.Tests.csproj", "{13E94B2E-EFB6-463B-B913-D17CF9DE4338}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NatController.Tests", "NatController.Tests\NatController.Tests.csproj", "{13E94B2E-EFB6-463B-B913-D17CF9DE4338}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
